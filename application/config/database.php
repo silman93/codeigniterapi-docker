@@ -75,10 +75,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'db_ci_rabbitmq',
+	'hostname' => 'mysql-restserv',
 	'username' => 'root',
-	'password' => '7*DBci369',
-	'database' => 'db_ci',
+	'password' => 'EscoSerra2024*',
+	'port'     => 3306,
+	'database' => 'rest-server',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

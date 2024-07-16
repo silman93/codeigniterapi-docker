@@ -17,8 +17,7 @@ class Api extends REST_Controller {
     }
      
     public function users_get($id = 0) { 
-
-        // Returns all rows if the id parameter doesn't exist, 
+	// Returns all rows if the id parameter doesn't exist, 
         //otherwise single row will be returned 
         $users = $this->user->getRows($id); 
          
