@@ -1,4 +1,4 @@
-version : "3" 
+version : "3.7" 
 services :
     webserver :
         build :
@@ -6,24 +6,18 @@ services :
             dockerfile : Dockerfile 
         container_name : php_ci_rabbitmq
         ports : 
-            - 9484:80
+            - 8090:80
         volumes :
             - .:/var/www/html
         command : sh /var/www/html/docker/php/init.sh
-    database :
-        container_name : db_ci_rabbitmq
-        image : mysql:5.7
-        ports :
-            - "3306:3306"
-        expose:
-          - 3306
-        environment :
-            - MYSQL_ROOT_PASSWORD=7*DBci369
-            - MYSQL_DATABASE=db_ci
-            - MYSQL_USER=keycloak
-            - MYSQL_PASSWORD=password
-        volumes:
-          - ./mysql:/var/lib/mysql
+        networks:
+           - app-network        
+
+networks:
+  app-network:
+    name: mysql_network
+    external: true
+
 #     memcached :
 #         container_name : memcached_ci_rabbitmq
 #         image : memcached:alpine
